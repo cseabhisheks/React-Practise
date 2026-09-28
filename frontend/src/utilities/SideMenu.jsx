@@ -1,6 +1,6 @@
 import { FaHamburger } from "react-icons/fa";
 import { useState } from 'react'
-export default function App() {
+export default function SideMenu() {
     const [isOpen, setOpen] = useState(true)
     return (<>
         {isOpen ?
