@@ -2,7 +2,11 @@ import OTPGenerator from "./utilities/otp"
 import { useState } from 'react'
 export default function App() {
   const [OTP, setOTP] = useState()
-
+  let max = 9999
+  let min = 1111
+  function OTPGenerator() {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
   const OTPGenratorfn = () => {
     setOTP(OTPGenerator())
   }
