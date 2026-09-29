@@ -1,18 +1,19 @@
-// RATELIMITING
+// Throttling
 import { useRef, useState } from "react";
 
 export default function App() {
   const [text, setText] = useState("");
-  const count = useRef(0);
+  const lastTime = useRef(0);
 
   const handleInput = (e) => {
     setText(e.target.value);
 
-    if (count.current < 3) {
-      console.log("API call:", e.target.value);
-      count.current++;
-    } else {
-      console.log("Request blocked");
+    const currentTime = Date.now();
+
+    if (currentTime - lastTime.current >= 2000) {
+      console.log("Function called:", e.target.value);
+
+      lastTime.current = currentTime;
     }
   };
 
